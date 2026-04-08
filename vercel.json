@@ -1,11 +1,16 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index" }
-  ],
-  "crons": [
+  "version": 2,
+  "builds": [
     {
-      "path": "/refresh",
-      "schedule": "0 */6 * * *"
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
     }
   ]
 }
+
